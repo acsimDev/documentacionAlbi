@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import './Login.css';
-import logoCIPE from '../assets/img/LogoCIPE.png';
+import logoAlbibot from '../assets/img/albibot.jpeg';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -25,11 +25,11 @@ const Login = () => {
       <div className="login-box">
         <div className="login-header">
           <img 
-            src={logoCIPE} 
-            alt="Logo CIPE" 
+            src={logoAlbibot} 
+            alt="Logo Albibot" 
             className="login-logo"
           />
-          <h1 className="login-title">Plataforma de Documentación</h1>
+          <h1 className="login-title">Plataforma de Documentación Albibot</h1>
         </div>
         
         <form onSubmit={handleSubmit} className="login-form">

@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faDownload, 
+  faTimes, 
+  faChevronLeft, 
+  faChevronRight, 
+  faExclamationTriangle 
+} from '@fortawesome/free-solid-svg-icons';
 import './PDFViewer.css';
 
 // Configurar el worker de PDF.js
@@ -8,7 +16,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 const PDFViewer = ({ fileName, documentTitle, onClose }) => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
-  const [scale, setScale] = useState(1.0);
+  const [scale] = useState(1.0);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -32,17 +40,6 @@ const PDFViewer = ({ fileName, documentTitle, onClose }) => {
     setPageNumber(prev => Math.min(prev + 1, numPages));
   };
 
-  const zoomIn = () => {
-    setScale(prev => Math.min(prev + 0.2, 3.0));
-  };
-
-  const zoomOut = () => {
-    setScale(prev => Math.max(prev - 0.2, 0.5));
-  };
-
-  const resetZoom = () => {
-    setScale(1.0);
-  };
 
   const downloadPDF = () => {
     if (fileName) {
@@ -67,14 +64,16 @@ const PDFViewer = ({ fileName, documentTitle, onClose }) => {
               onClick={downloadPDF}
               title="Descargar PDF"
             >
-              📥 Descargar
+              <FontAwesomeIcon icon={faDownload} className="btn-icon" />
+              Descargar
             </button>
             <button 
               className="control-btn close-btn"
               onClick={onClose}
               title="Cerrar visor"
             >
-              ✕ Cerrar
+              <FontAwesomeIcon icon={faTimes} className="btn-icon" />
+              Cerrar
             </button>
           </div>
         </div>
@@ -86,7 +85,8 @@ const PDFViewer = ({ fileName, documentTitle, onClose }) => {
               onClick={goToPrevPage}
               disabled={pageNumber <= 1}
             >
-              ◀ Anterior
+              <FontAwesomeIcon icon={faChevronLeft} className="btn-icon" />
+              Anterior
             </button>
             <span className="page-info">
               Página {pageNumber} de {numPages || '...'}
@@ -96,36 +96,11 @@ const PDFViewer = ({ fileName, documentTitle, onClose }) => {
               onClick={goToNextPage}
               disabled={pageNumber >= numPages}
             >
-              Siguiente ▶
+              Siguiente
+              <FontAwesomeIcon icon={faChevronRight} className="btn-icon" />
             </button>
           </div>
           
-          <div className="zoom-controls">
-            <button 
-              className="toolbar-btn"
-              onClick={zoomOut}
-              title="Alejar"
-            >
-              🔍-
-            </button>
-            <span className="zoom-info">
-              {Math.round(scale * 100)}%
-            </span>
-            <button 
-              className="toolbar-btn"
-              onClick={zoomIn}
-              title="Acercar"
-            >
-              🔍+
-            </button>
-            <button 
-              className="toolbar-btn"
-              onClick={resetZoom}
-              title="Zoom original"
-            >
-              🔍
-            </button>
-          </div>
         </div>
 
         <div className="pdf-viewer-content">
@@ -138,7 +113,9 @@ const PDFViewer = ({ fileName, documentTitle, onClose }) => {
           
           {error && (
             <div className="error-container">
-              <div className="error-icon">⚠️</div>
+              <div className="error-icon">
+                <FontAwesomeIcon icon={faExclamationTriangle} />
+              </div>
               <p>{error}</p>
               <p className="error-detail">
                 Asegúrate de que el archivo PDF existe en la carpeta /docs/

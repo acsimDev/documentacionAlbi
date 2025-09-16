@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Header.css';
-import logoFiscalia from '../assets/img/LogoFiscalia.png';
-import logoCIPE from '../assets/img/LogoCIPE.png';
+import logoAlbibot from '../assets/img/albibot.jpeg';
 import HighlightManager from './HighlightManager';
 import { BackArrowIcon } from './Icons';
 import { useAuth } from '../context/AuthContext';
@@ -22,17 +21,14 @@ const Header = () => {
     <header className="header">
       <div className="header-top">
         <div className="header-left">
-          <div className="logo-container fiscalia-logo">
-            <img src={logoFiscalia} alt="Logo Fiscalía" className="logo-image" />
-          </div>
-          <div className="logo-container cipe-logo">
-            <img src={logoCIPE} alt="Logo CIPE" className="logo-image" />
+          <div className="logo-container albibot-logo">
+            <img src={logoAlbibot} alt="Logo Albibot" className="logo-image" />
           </div>
         </div>
         <div className="header-right">
           <h1 className="main-title">
-            <span className="title-line-1">Plataforma Contactabilidad CIPE para MP</span>
-            <span className="title-line-2">Diseño modular alineado con los objetivos del modelo</span>
+            <span className="title-line-1">Plataforma de Documentación Albibot</span>
+            <span className="title-line-2">Estructuración y Operación Negocio Tecnológico</span>
           </h1>
         </div>
       </div>
@@ -51,7 +47,7 @@ const Header = () => {
             to="/" 
             className={`nav-tab ${location.pathname === '/' ? 'active' : ''}`}
           >
-            Plataforma CIPE
+            Plataforma Albibot
           </Link>
         </div>
         <div className="nav-actions">

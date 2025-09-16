@@ -25,7 +25,7 @@
 }
 
 .pdf-viewer-header {
-  background: linear-gradient(135deg, #16808C 0%, #0F5F6B 100%);
+  background: #20b2aa;
   color: white;
   padding: 1rem 1.5rem;
   display: flex;
@@ -62,6 +62,13 @@
   transition: all 0.2s ease;
   font-size: 0.9rem;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.control-btn .btn-icon {
+  font-size: 0.875rem;
 }
 
 .control-btn:hover {
@@ -89,7 +96,7 @@
   gap: 1rem;
 }
 
-.page-controls, .zoom-controls {
+.page-controls {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -98,20 +105,27 @@
 .toolbar-btn {
   background: white;
   border: 1px solid #dee2e6;
-  color: #16808C;
+  color: #20b2aa;
   padding: 0.4rem 0.8rem;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
   font-size: 0.9rem;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toolbar-btn .btn-icon {
+  font-size: 0.875rem;
 }
 
 .toolbar-btn:hover:not(:disabled) {
-  background: #16808C;
+  background: #20b2aa;
   color: white;
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(22, 128, 140, 0.3);
+  box-shadow: 0 2px 8px rgba(32, 178, 170, 0.3);
 }
 
 .toolbar-btn:disabled {
@@ -119,7 +133,7 @@
   cursor: not-allowed;
 }
 
-.page-info, .zoom-info {
+.page-info {
   font-weight: 600;
   color: #495057;
   font-size: 0.9rem;
@@ -164,7 +178,7 @@
   width: 40px;
   height: 40px;
   border: 4px solid #f3f3f3;
-  border-top: 4px solid #16808C;
+  border-top: 4px solid #20b2aa;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin-bottom: 1rem;
@@ -188,6 +202,7 @@
 .error-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: #dc3545;
 }
 
 .error-detail {
@@ -217,7 +232,7 @@
     gap: 1rem;
   }
   
-  .page-controls, .zoom-controls {
+  .page-controls {
     justify-content: center;
   }
   
@@ -248,7 +263,7 @@
     font-size: 0.8rem;
   }
   
-  .page-info, .zoom-info {
+  .page-info {
     font-size: 0.8rem;
     min-width: 100px;
   }

@@ -12,32 +12,18 @@ export const useHighlight = () => {
 
 export const HighlightProvider = ({ children }) => {
   const [highlightedModules, setHighlightedModules] = useState(() => {
-    // Módulos que siempre aparecen "en desarrollo" por defecto
-    const defaultHighlightedModules = [
-      'hub-integraciones',      // 0. Hub integraciones
-      'call-center',           // 1.1 Módulo Atenciones OI Call Center
-      'atenciones-ministerio', // 1.2 Módulo Atenciones Ministerio
-      'emergencia',            // 3. Módulo atenciones línea emergencia
-      'autoatencion',          // 9. Módulo Autoatención
-      'configuracion',         // 10. Módulo Configuración
-      'agentes-ia',            // 11. Módulo Agentes inteligentes
-      'seguridad'              // 13. Módulo Seguridad
-    ];
-
-    // Cargar desde localStorage o usar módulos por defecto
+    // Cargar desde localStorage, sin módulos por defecto
     const saved = localStorage.getItem('highlightedModules');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        // Combinar módulos guardados con los por defecto
-        const combined = [...new Set([...defaultHighlightedModules, ...parsed])];
-        return new Set(combined);
+        return new Set(parsed);
       } catch (error) {
         console.error('Error parsing saved highlighted modules:', error);
-        return new Set(defaultHighlightedModules);
+        return new Set();
       }
     }
-    return new Set(defaultHighlightedModules);
+    return new Set();
   });
 
   const toggleHighlight = (moduleId) => {

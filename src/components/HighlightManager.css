@@ -4,7 +4,7 @@
 }
 
 .highlight-toggle {
-  background: #16808C;
+  background: #20b2aa;
   color: white;
   border: none;
   border-radius: 0.25rem;
@@ -12,7 +12,7 @@
   font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(22, 128, 140, 0.2);
+  box-shadow: 0 2px 4px rgba(32, 178, 170, 0.2);
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
@@ -21,9 +21,9 @@
 }
 
 .highlight-toggle:hover {
-  background: #0d5a5f;
+  background: #17a2b8;
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(22, 128, 140, 0.3);
+  box-shadow: 0 4px 8px rgba(32, 178, 170, 0.3);
 }
 
 .highlight-panel {

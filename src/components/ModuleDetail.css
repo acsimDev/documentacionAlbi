@@ -1,6 +1,6 @@
 .module-detail {
   min-height: 100vh;
-  background: #16808C;
+  background: #20b2aa;
   padding: 0;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .back-button {
-  background: #16808C;
+  background: #20b2aa;
   color: white;
   border: none;
   padding: 1rem 1.5rem;
@@ -38,14 +38,14 @@
 }
 
 .back-button:hover {
-  background: #0d5a5f;
+  background: #17a2b8;
   transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(22, 128, 140, 0.3);
+  box-shadow: 0 2px 4px rgba(32, 178, 170, 0.3);
 }
 
 .back-button:active {
   transform: translateY(0);
-  background: #0a4a4f;
+  background: #138496;
 }
 
 .module-header-white {
@@ -126,14 +126,14 @@
 }
 
 .breadcrumb-link {
-  color: #0d5a5f;
+  color: #17a2b8;
   cursor: pointer;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .breadcrumb-link:hover {
-  color: #16808C;
+  color: #20b2aa;
   text-decoration: underline;
 }
 
@@ -150,7 +150,7 @@
 .module-icon-large {
   width: 4rem;
   height: 4rem;
-  background: linear-gradient(135deg, #007bff, #28a745);
+  background: #20b2aa;
   border-radius: 0.75rem;
   display: flex;
   align-items: center;
@@ -374,19 +374,19 @@
 }
 
 .progress-btn:hover {
-  border-color: #0d5a5f;
-  color: #0d5a5f;
+  border-color: #17a2b8;
+  color: #17a2b8;
 }
 
 .progress-btn.active {
-  background: #0d5a5f;
-  border-color: #0d5a5f;
+  background: #17a2b8;
+  border-color: #17a2b8;
   color: white;
 }
 
 .progress-btn.active:hover {
-  background: #16808C;
-  border-color: #16808C;
+  background: #20b2aa;
+  border-color: #20b2aa;
 }
 
 .item-content h3 {
@@ -404,7 +404,7 @@
 }
 
 .item-link {
-  color: #0d5a5f;
+  color: #17a2b8;
   text-decoration: none;
   font-size: 0.875rem;
   font-weight: 500;
@@ -412,7 +412,7 @@
 }
 
 .item-link:hover {
-  color: #16808C;
+  color: #20b2aa;
   text-decoration: underline;
 }
 

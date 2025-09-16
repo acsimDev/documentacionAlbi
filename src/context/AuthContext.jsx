@@ -91,7 +91,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = (username, password) => {
     // Credenciales fijas
-    if (username === 'cipe' && password === 'cipe2025') {
+    if (username === 'albi' && password === 'albi2025') {
       setIsAuthenticated(true);
       localStorage.setItem('cipe_auth', 'true');
       resetInactivityTimer();

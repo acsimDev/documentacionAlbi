@@ -1,22 +1,23 @@
 .main-menu {
-  background: linear-gradient(135deg, #16808C 0%, #0F5F6B 100%);
+  background: #f8f9fa;
   padding: 2rem 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: visible;
 }
 
 .menu-container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
+  overflow: visible;
 }
 
 .menu-title {
-  color: white;
+  color: #2c3e50;
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .menu-grid {
@@ -28,6 +29,7 @@
 
 .menu-item {
   position: relative;
+  overflow: visible;
 }
 
 .menu-card {
@@ -45,8 +47,8 @@
 }
 
 .menu-card.highlighted {
-  border: 2px solid #16808C;
-  box-shadow: 0 8px 25px rgba(22, 128, 140, 0.3);
+  border: 2px solid #20b2aa;
+  box-shadow: 0 8px 25px rgba(32, 178, 170, 0.3);
 }
 
 .card-content {
@@ -59,12 +61,12 @@
   flex-shrink: 0;
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #16808C 0%, #0F5F6B 100%);
+  background: #20b2aa;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(22, 128, 140, 0.3);
+  box-shadow: 0 4px 15px rgba(32, 178, 170, 0.3);
 }
 
 .fa-icon {
@@ -113,10 +115,10 @@
 }
 
 .status-tag.active {
-  background: linear-gradient(135deg, #16808C 0%, #0F5F6B 100%);
+  background: #20b2aa;
   color: white;
-  border-color: #16808C;
-  box-shadow: 0 2px 8px rgba(22, 128, 140, 0.3);
+  border-color: #20b2aa;
+  box-shadow: 0 2px 8px rgba(32, 178, 170, 0.3);
 }
 
 .card-description {
@@ -137,7 +139,7 @@
 .menu-button {
   background: none;
   border: none;
-  color: #16808C;
+  color: #20b2aa;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -150,7 +152,7 @@
 }
 
 .menu-button:hover {
-  color: #0F5F6B;
+  color: #17a2b8;
   transform: translateX(2px);
 }
 
@@ -170,7 +172,94 @@
 
 .card-progress {
   flex-shrink: 0;
+  position: relative;
+  overflow: visible;
 }
+
+.progress-circle-container {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.progress-circle-container:hover {
+  transform: scale(1.1);
+}
+
+.progress-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+  border-top: 3px solid #20b2aa;
+  animation: slideDown 0.3s ease;
+  margin-top: 0.5rem;
+  padding: 1rem;
+}
+
+.progress-dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.progress-dropdown-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #6c757d;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-dropdown-close:hover {
+  color: #dc3545;
+}
+
+.progress-dropdown-options {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+}
+
+.progress-dropdown-option {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #495057;
+  transition: all 0.2s ease;
+}
+
+.progress-dropdown-option:hover {
+  background: #e9ecef;
+  border-color: #20b2aa;
+}
+
+.progress-dropdown-option.active {
+  background: #20b2aa;
+  color: white;
+  border-color: #20b2aa;
+}
+
 
 
 .submenu {
@@ -184,7 +273,7 @@
   z-index: 1000;
   max-height: 400px;
   overflow-y: auto;
-  border-top: 3px solid #16808C;
+  border-top: 3px solid #20b2aa;
   animation: slideDown 0.3s ease;
   margin-top: 0.5rem;
 }
@@ -220,7 +309,7 @@
 }
 
 .submenu-item:hover {
-  background: linear-gradient(135deg, #16808C 0%, #0F5F6B 100%);
+  background: #20b2aa;
   color: white;
   transform: translateX(5px);
 }
@@ -248,12 +337,12 @@
 }
 
 .submenu::-webkit-scrollbar-thumb {
-  background: #16808C;
+  background: #20b2aa;
   border-radius: 3px;
 }
 
 .submenu::-webkit-scrollbar-thumb:hover {
-  background: #0F5F6B;
+  background: #17a2b8;
 }
 
 /* Responsive */

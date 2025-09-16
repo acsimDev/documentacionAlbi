@@ -17,7 +17,8 @@ import {
 
 const MainMenu = ({ onDocumentSelect }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const { getProgress } = useProgress();
+  const [activeProgressMenu, setActiveProgressMenu] = useState(null);
+  const { getProgress, updateProgress } = useProgress();
   const { isHighlighted, toggleHighlight } = useHighlight();
 
   // Función para generar el ID del módulo basado en el título
@@ -30,6 +31,25 @@ const MainMenu = ({ onDocumentSelect }) => {
     e.preventDefault();
     e.stopPropagation();
     toggleHighlight(moduleId);
+  };
+
+  // Función para manejar el click en el círculo de progreso
+  const handleProgressClick = (e, moduleId) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setActiveProgressMenu(activeProgressMenu === moduleId ? null : moduleId);
+  };
+
+
+  // Función para actualizar el progreso
+  const handleProgressUpdate = (moduleId, percentage) => {
+    updateProgress(moduleId, percentage);
+    setActiveProgressMenu(null);
+  };
+
+  // Función para cerrar el menú de progreso
+  const closeProgressMenu = () => {
+    setActiveProgressMenu(null);
   };
 
   const menuItems = [
@@ -236,7 +256,13 @@ const MainMenu = ({ onDocumentSelect }) => {
                           </span>
                         </button>
                         <div className="card-progress">
-                          <ProgressCircle percentage={progress} size={50} strokeWidth={4} />
+                          <div 
+                            className="progress-circle-container"
+                            onClick={(e) => handleProgressClick(e, moduleId)}
+                            title="Click para ajustar progreso"
+                          >
+                            <ProgressCircle percentage={progress} size={50} strokeWidth={4} />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -255,6 +281,32 @@ const MainMenu = ({ onDocumentSelect }) => {
                         {subItem}
                       </button>
                     ))}
+                  </div>
+                )}
+
+                {activeProgressMenu === moduleId && (
+                  <div className="progress-dropdown">
+                    <div className="progress-dropdown-header">
+                      <span>Ajustar Progreso</span>
+                      <button 
+                        className="progress-dropdown-close"
+                        onClick={closeProgressMenu}
+                        title="Cerrar"
+                      >
+                        ×
+                      </button>
+                    </div>
+                    <div className="progress-dropdown-options">
+                      {[0, 25, 50, 75, 100].map(percentage => (
+                        <button
+                          key={percentage}
+                          className={`progress-dropdown-option ${progress === percentage ? 'active' : ''}`}
+                          onClick={() => handleProgressUpdate(moduleId, percentage)}
+                        >
+                          {percentage}%
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
