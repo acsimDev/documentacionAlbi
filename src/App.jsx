@@ -7,7 +7,6 @@ import SessionWarning from './components/SessionWarning';
 import Header from './components/Header';
 import MainMenu from './components/MainMenu';
 import PDFViewer from './components/PDFViewer';
-import ModuleDetail from './components/ModuleDetail';
 
 function App() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -63,7 +62,6 @@ function App() {
             )}
           </>
         } />
-        <Route path="/module/:moduleId" element={<ModuleDetail />} />
       </Routes>
     </div>
   );
