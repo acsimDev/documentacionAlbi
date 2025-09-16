@@ -1,0 +1,74 @@
+.progress-circle-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tamaños predefinidos */
+.progress-circle-container.size-small {
+  width: 40px;
+  height: 40px;
+}
+
+.progress-circle-container.size-medium {
+  width: 60px;
+  height: 60px;
+}
+
+.progress-circle-container.size-large {
+  width: 80px;
+  height: 80px;
+}
+
+.progress-circle {
+  display: block;
+  transform: rotate(-90deg);
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 100%;
+}
+
+.progress-stroke {
+  transition: stroke-dashoffset 0.5s ease-in-out, stroke 0.3s ease-in-out;
+}
+
+/* Colores de progreso */
+.progress-circle-container.color-0 .progress-text {
+  color: #6c757d; /* Gris */
+}
+
+.progress-circle-container.color-25 .progress-text {
+  color: #ffc107; /* Amarillo */
+}
+
+.progress-circle-container.color-50 .progress-text {
+  color: #a4d65e; /* Amarillo-verde claro */
+}
+
+.progress-circle-container.color-75 .progress-text {
+  color: #6bbf47; /* Verde medio */
+}
+
+.progress-circle-container.color-100 .progress-text {
+  color: #28a745; /* Verde */
+}
+
+.progress-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1;
+  pointer-events: none;
+  transition: color 0.3s ease;
+  margin: 0;
+  padding: 0;
+}

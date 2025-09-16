@@ -1,0 +1,67 @@
+.app {
+  min-height: 100vh;
+  background: #16808C;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.main-content {
+  padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+  max-width: 87.5rem;
+  margin: 0 auto;
+}
+
+.catalog-bar {
+  background: transparent;
+  color: #2c3e50;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  align-items: stretch; /* Hace que todas las cards tengan la misma altura */
+  grid-auto-rows: 1fr; /* Fuerza que todas las filas tengan la misma altura */
+}
+
+.hub-section {
+  background: rgba(255, 255, 255, 0.1);
+  border: 0.125rem solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin: 1.875rem 0;
+  text-align: center;
+}
+
+.hub-section .card {
+  background: rgba(255, 255, 255, 0.95);
+  max-width: 37.5rem;
+  margin: 0 auto;
+  min-height: 9rem; /* Misma altura que las otras cards */
+}
+
+.strategic-section {
+  background: rgba(255, 255, 255, 0.1);
+  border: 0.125rem solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin: 1.875rem 0;
+  text-align: center;
+}
+
+.strategic-section .card {
+  background: rgba(255, 255, 255, 0.95);
+  max-width: 37.5rem;
+  margin: 0 auto;
+  min-height: 9rem; /* Misma altura que las otras cards */
+}

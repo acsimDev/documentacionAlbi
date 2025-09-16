@@ -1,0 +1,239 @@
+.card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Asegura que todas las cards tengan la misma altura */
+  min-height: 9rem; /* Altura mínima fija para consistencia */
+}
+
+.card:hover {
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.card-content {
+  display: flex;
+  align-items: flex-start; /* Alinea los elementos al inicio, no los estira */
+  padding: 1.5rem;
+  gap: 1.25rem;
+  flex: 1; /* Permite que el contenido ocupe toda la altura disponible */
+  min-height: 6rem; /* Altura mínima ajustada para el contenido */
+}
+
+.card-icon {
+  flex-shrink: 0;
+  width: 3.75rem;
+  height: 3.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  align-self: flex-start; /* Asegura que el icono no se estire */
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+/* Bordes de colores por página */
+.card-icon.principal {
+  border-color: #0e0c4e; /* Azul/Teal para página principal */
+}
+
+.card-icon.piloto {
+  border-color: #38B46E; /* Verde para Piloto CIPE */
+}
+
+.card-icon.emergencia {
+  border-color: #f12a8e; /* Fucsia para Servicio de Emergencia CIPE */
+}
+
+/* Colores específicos por página - solo cuando está resaltado */
+.card.highlighted .card-icon.principal {
+  border-color: #16808C; /* Verde del resaltado - mantiene el color original */
+}
+
+.card.highlighted .card-icon.piloto {
+  border-color: #16808C; /* Verde del resaltado - mantiene el color original */
+}
+
+.card.highlighted .card-icon.emergencia {
+  border-color: #16808C; /* Verde del resaltado - mantiene el color original */
+}
+
+.emoji-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Estilos para iconos de Font Awesome con colores coherentes */
+.card-icon svg {
+  transition: color 0.3s ease;
+}
+
+/* Colores para iconos por página - 60% de opacidad */
+.card-icon.principal svg {
+  color: rgba(14, 12, 78, 0.6); /* #0e0c4e con 60% opacidad */
+}
+
+.card-icon.piloto svg {
+  color: rgba(56, 180, 110, 0.6); /* #38B46E con 60% opacidad */
+}
+
+.card-icon.emergencia svg {
+  color: rgba(241, 42, 142, 0.6); /* #f12a8e con 60% opacidad */
+}
+
+/* Colores para iconos cuando están resaltados */
+.card.highlighted .card-icon.principal svg {
+  color: rgba(22, 128, 140, 0.6); /* #16808C con 60% opacidad */
+}
+
+.card.highlighted .card-icon.piloto svg {
+  color: rgba(22, 128, 140, 0.6); /* #16808C con 60% opacidad */
+}
+
+.card.highlighted .card-icon.emergencia svg {
+  color: rgba(22, 128, 140, 0.6); /* #16808C con 60% opacidad */
+}
+
+/* Estilos para módulos resaltados */
+.card.highlighted {
+  position: relative;
+}
+
+.card.highlighted::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #16808C;
+  z-index: 1;
+}
+
+
+/* Botón de toggle para marcar módulos */
+.highlight-toggle {
+  background: transparent;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.65rem;
+  font-weight: 500;
+  flex-shrink: 0;
+  color: #adb5bd;
+  opacity: 0.6;
+  white-space: nowrap;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  max-width: 5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.highlight-toggle:hover {
+  opacity: 1;
+  color: #6c757d;
+  border-color: #adb5bd;
+}
+
+.highlight-toggle.active {
+  color: #16808C;
+  opacity: 1;
+  border-color: #16808C;
+  background: rgba(22, 128, 140, 0.1);
+  font-weight: 600;
+  max-width: 5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.highlight-toggle.active:hover {
+  color: #0d5a5f;
+  border-color: #0d5a5f;
+  background: rgba(22, 128, 140, 0.15);
+}
+
+.card-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye el contenido uniformemente */
+  min-height: 4rem; /* Altura mínima para el contenido de texto */
+  height: 100%; /* Ocupa toda la altura disponible */
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+  gap: 0.5rem;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #2c3e50;
+  line-height: 1.3;
+  flex: 1;
+  min-width: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.card-description {
+  margin: 0 0 0.5rem 0; /* Reducido de 1rem a 0.5rem */
+  font-size: 0.875rem;
+  color: #6c757d;
+  line-height: 1.5;
+  flex-grow: 1; /* Permite que la descripción ocupe el espacio disponible */
+  display: flex;
+  align-items: flex-start; /* Alinea el texto al inicio */
+  min-height: 1.5rem; /* Reducido aún más para igualar el espaciado */
+  max-height: 2.5rem; /* Altura máxima para evitar que se estire demasiado */
+  justify-content: flex-start; /* Alinea el contenido al inicio */
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; /* Empuja el footer hacia abajo */
+  flex-shrink: 0; /* Evita que el footer se comprima */
+  min-height: 1.5rem; /* Altura mínima para el footer */
+  position: relative; /* Asegura que el footer mantenga su posición */
+  z-index: 1; /* Mantiene el footer por encima del contenido */
+  padding-top: 0.25rem; /* Reducido de 0.5rem a 0.25rem */
+}
+
+.card-link {
+  color: #0d5a5f;
+  text-decoration: underline;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.card-link:hover {
+  color: #16808C;
+}
+
+.card-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
