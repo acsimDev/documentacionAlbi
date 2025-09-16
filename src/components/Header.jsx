@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Header.css';
 import logoFiscalia from '../assets/img/LogoFiscalia.png';
@@ -10,8 +10,6 @@ import { useAuth } from '../context/AuthContext';
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
   const { logout } = useAuth();
 
   // Función para manejar el botón de regreso
@@ -19,19 +17,6 @@ const Header = () => {
     navigate(-1);
   };
 
-  // Cerrar el menú desplegable cuando se hace clic fuera
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
 
   return (
     <header className="header">
@@ -62,44 +47,11 @@ const Header = () => {
               <BackArrowIcon />
             </button>
           )}
-          <div className="nav-tab-dropdown" ref={dropdownRef}>
-            <button 
-              className={`nav-tab ${location.pathname === '/' ? 'active' : ''}`}
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            >
-              Plataforma CIPE
-              <span className="dropdown-arrow">▼</span>
-            </button>
-            {isDropdownOpen && (
-              <div className="dropdown-menu">
-                <Link 
-                  to="/" 
-                  className={`dropdown-item ${location.pathname === '/' ? 'active' : ''}`}
-                  onClick={() => setIsDropdownOpen(false)}
-                >
-                  Módulos
-                </Link>
-                <Link 
-                  to="/p-plan" 
-                  className={`dropdown-item ${location.pathname === '/p-plan' ? 'active' : ''}`}
-                  onClick={() => setIsDropdownOpen(false)}
-                >
-                  Plan
-                </Link>
-              </div>
-            )}
-          </div>
           <Link 
-            to="/piloto-cipe" 
-            className={`nav-tab ${location.pathname === '/piloto-cipe' ? 'active' : ''}`}
+            to="/" 
+            className={`nav-tab ${location.pathname === '/' ? 'active' : ''}`}
           >
-            Piloto CIPE
-          </Link>
-          <Link 
-            to="/servicio-emergencia" 
-            className={`nav-tab ${location.pathname === '/servicio-emergencia' ? 'active' : ''}`}
-          >
-            Servicio de emergencia CIPE
+            Plataforma CIPE
           </Link>
         </div>
         <div className="nav-actions">

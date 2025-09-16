@@ -13,7 +13,6 @@ const SessionWarning = () => {
 
     // Mostrar advertencia 5 minutos antes del timeout (25 minutos de inactividad)
     const showWarningTime = 25 * 60 * 1000; // 25 minutos en milisegundos
-    const totalTimeout = 30 * 60 * 1000; // 30 minutos en milisegundos
 
     warningTimeout = setTimeout(() => {
       setShowWarning(true);
